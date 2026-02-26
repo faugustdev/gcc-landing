@@ -1,0 +1,31 @@
+# GCC — Git Context Controller
+
+> Structured, versioned memory for LLM agents. GCC gives agents persistent context using git-like operations: COMMIT milestones, BRANCH experiments, MERGE results, and recover CONTEXT across sessions.
+
+GCC solves the problem of stateless LLM agents. Without structured memory, agents lose critical decisions behind token limits, can't safely experiment, sessions don't connect, and handoff between agents is impossible.
+
+Agents operate through an Observation-Thought-Action (OTA) cycle. Every meaningful decision is logged and recoverable. The agent observes state, thinks about strategy, acts on the plan, then persists progress.
+
+Everything lives under a `.GCC/` directory — human-readable, version-controlled, and inspectable. The file structure includes `main.md` (roadmap), `metadata.yaml` (project state), `commit.md` (commit history), `log.md` (OTA execution log), and `branches/` (isolated workspaces).
+
+Four composable commands cover the full lifecycle of agent memory:
+
+- **COMMIT**: Persist a milestone with full technical context — reasoning, files touched, and branch purpose. Triggers: `/gcc commit`, "save this", "checkpoint".
+- **BRANCH**: Create an isolated workspace for experimentation without polluting the main flow. Triggers: `/gcc branch`, "try alternative", "experiment with".
+- **MERGE**: Synthesize a completed branch back into main — what was tried, learned, and integrated. Triggers: `/gcc merge`, "integrate results", "branch is done".
+- **CONTEXT**: Retrieve historical memory at any resolution — from high-level roadmap to fine-grained OTA traces. Triggers: `/gcc context`, "where were we?", "show history".
+
+GCC is open source (MIT license), backed by peer-reviewed research, and works with Claude Code or any agent framework.
+
+## Links
+
+- [GitHub Repository](https://github.com/faugustdev/git-context-controller): Source code, installation instructions, and documentation
+- [Research Paper](https://arxiv.org/abs/2508.00031): Peer-reviewed paper on structured memory for LLM agents
+- [Landing Page](https://gcc.faugust.com): Project homepage with interactive demos and quick start guide
+- [Author](https://faugust.com): Created by faugust
+
+## Installation
+
+- [Skills.sh (Recommended)](https://gcc.faugust.com/#quickstart): `npx skills add faugustdev/git-context-controller`
+- [Manual Installation](https://gcc.faugust.com/#quickstart): Copy `gcc/` directory to your project's `.claude/skills/gcc/`
+- [Standalone](https://gcc.faugust.com/#quickstart): Clone the repo and run `./scripts/gcc_init.sh`
