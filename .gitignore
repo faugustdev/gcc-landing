@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+skills-lock.json
+.gitignore
+.agent/skills/*
+.agents/skills/*
+.claude/skills/*
+wrangler.toml
